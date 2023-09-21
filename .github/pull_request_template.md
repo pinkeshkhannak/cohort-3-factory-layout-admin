@@ -1,11 +1,11 @@
-## Definition of Done
+# Definition of Done
 
-## Code is completed & refactored
+### Code is completed & refactored
 
-## Meet acceptance criteria
+### Meet acceptance criteria
 
-## Peer review
+### Peer review
 
-## Complete all requirements of stories
+### Complete all requirements of stories
 
-## All code test are done
+### All code test are done
