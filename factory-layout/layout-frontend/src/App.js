@@ -1,24 +1,71 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import SideBar from "./components/SideBar.js"
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container fluid={true} className='page' >
+
+        <style type="text/css">
+            {`
+        .btn-primary {
+        
+        --bs-btn-bg: #7749f8;
+        --bs-btn-hover-bg: #6f44e4;
+        --bs-btn-active-bg: #613dc5;
+
+        --bs-btn-border-color: #7749f8 ;
+        --bs-btn-hover-border-color: #6f44e4 ;
+        --bs-btn-active-border-color: #613dc5 ;
+        }
+
+        .btn-secondary {
+            --bs-btn-color: #6c757d;
+            --bs-btn-hover-color: #6c757d;
+            --bs-btn-active-color: #6c757d;
+
+            --bs-btn-bg: #fff;
+            --bs-btn-hover-bg: #fff;
+            --bs-btn-active-bg: #fff;
+
+
+            --bs-btn-border-color: #dee2e6;
+            --bs-btn-hover-border-color: #6c757d;
+            --bs-btn-active-border-color: #6c757d;
+
+        }
+        
+        `}
+        </style>
+
+    <Row >
+        <Col sm={2}  style={{padding:"0"}}>
+            <SideBar/>
+        </Col>
+
+        <Col sm={10}>
+            <Container  fluid={true} className='display-flex align-center'>
+                
+
+                
+                <Row >
+                    <Col sm={8}>
+                        {/* put other components here */}
+                    </Col>
+                
+                    <Col sm={4}>
+                        {/* put other components here */}
+                    </Col>
+
+                </Row>
+            </Container>
+        </Col>
+    </Row>
+</Container>
   );
 }
 
