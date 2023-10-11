@@ -30,7 +30,19 @@
 
 .side-bar > div > button > svg, .side-bar > div > div >svg{
     margin-right: .5rem;
+    font-size: 1.5rem;
+}
+
+.side-bar > div > button:hover {
+    background-color: #6f44e4;
+    border-color: #6f44e4;
+}
+
+.side-bar > div > button:active {
+    background-color: #613dc5 !important;
+    border-color: #613dc5 !important;
 }
 .side-bar hr{
     margin: 0;
 }
+

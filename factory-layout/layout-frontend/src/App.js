@@ -14,13 +14,13 @@ function App() {
             {`
         .btn-primary {
         
-        --bs-btn-bg: #7749f8;
-        --bs-btn-hover-bg: #6f44e4;
-        --bs-btn-active-bg: #613dc5;
+            --bs-btn-bg: #7749f8;
+            --bs-btn-hover-bg: #6f44e4;
+            --bs-btn-active-bg: #613dc5;
 
-        --bs-btn-border-color: #7749f8 ;
-        --bs-btn-hover-border-color: #6f44e4 ;
-        --bs-btn-active-border-color: #613dc5 ;
+            --bs-btn-border-color: #7749f8 ;
+            --bs-btn-hover-border-color: #6f44e4 ;
+            --bs-btn-active-border-color: #613dc5 ;
         }
 
         .btn-secondary {
