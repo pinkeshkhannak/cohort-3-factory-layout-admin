@@ -23,10 +23,8 @@ return (
     <div>
       <Card.Title><RiRobot2Fill/> Capstone Project</Card.Title>
       <ColoredLine color='white'/>
-      <Button variant="dark"><MdSpaceDashboard/>   Dashboard</Button>
-      <Button variant="dark"><MdOutlineRule/> Rules</Button>
-      <Button               ><TfiLayoutGrid3Alt/>     Layout</Button>
-      <Button variant="dark"><BsTools/>            Simulation</Button>
+      <Button ><MdSpaceDashboard/> Dashboard</Button>
+      <Button variant="dark"><BsTools/> Simulation</Button>
       <Button variant="dark"><BsFillPieChartFill/> Reports</Button>
     </div>
 
