@@ -25,3 +25,18 @@
 .side-bar hr{
     margin: 0 5% 0 5%;
 }
+
+.icon-button {
+  align-items: center;
+  display: flex;
+  width: 220px;
+  gap: 10px;
+  background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+.icon-button:hover {
+  background-color: Primary/Color;
+  color: white;
+}
