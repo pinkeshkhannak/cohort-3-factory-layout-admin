@@ -21,15 +21,15 @@ return (
     
   <Card className='side-bar ' bg='dark' text='light' >
     <div>
-      <Card.Title><RiRobot2Fill/>&#20;&#20;Capstone Project</Card.Title>
+      <Card.Title><RiRobot2Fill/>Capstone Project</Card.Title>
       <ColoredLine color='white'/>
-      <Button ><MdSpaceDashboard viewBox="3 2 19 19" />&#20;&#20;Dashboard</Button>
-      <Button  variant="dark"><BsTools/>&#20;&#20;Simulation</Button>
-      <Button  variant="dark"><BsFillPieChartFill/>&#20;&#20;Reports</Button>
+      <Button ><MdSpaceDashboard viewBox="3 2 19 19" />Dashboard</Button>
+      <Button  variant="dark"><BsTools/>Simulation</Button>
+      <Button  variant="dark"><BsFillPieChartFill/>Reports</Button>
     </div>
 
     <div>
-      <ColoredLine color='white'/>
+      <ColoredLine />
       <Button variant="dark" >Sign Out</Button>
     </div>
   </Card>

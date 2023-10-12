@@ -1,7 +1,7 @@
 
 function ColoredLine({ color }) {
 return (
-    <hr
+    <hr data-testid={"line"}
         style={{
             color: color,
             backgroundColor: color,
