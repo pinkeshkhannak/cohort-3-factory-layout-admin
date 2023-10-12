@@ -4,39 +4,44 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    
+
 }
 
 .side-bar > div{
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
+
 }
+
 
 .side-bar > div:nth-child(2) > button{
-    align-self: center;
+    justify-content: center;
 }
-.side-bar > div > hr{
-    align-self: center;
+
+.side-bar > div > button, .side-bar > div > div{
+    width: 90%;
+    margin: 2.5% 0 2.5% 0;
+    display: flex;
+    align-items: center;
+    padding-top:  1.5%;
+    padding-bottom: 1.5%;
 }
-.side-bar > div > button{
-    margin: 2.5% 5% 2.5% 5%
+
+.side-bar > div > button > svg, .side-bar > div > div >svg{
+    margin-right: .5rem;
+    font-size: 1.5rem;
+}
+
+.side-bar > div > button:hover {
+    background-color: #6f44e4;
+    border-color: #6f44e4;
+}
+
+.side-bar > div > button:active {
+    background-color: #613dc5 !important;
+    border-color: #613dc5 !important;
 }
 .side-bar hr{
-    margin: 0 5% 0 5%;
-}
-
-.icon-button {
-  align-items: center;
-  display: flex;
-  width: 220px;
-  gap: 10px;
-  background-color: transparent;
-    border: none;
-    outline: none;
-}
-
-.icon-button:hover {
-  background-color: Primary/Color;
-  color: white;
+    margin: 0;
 }
