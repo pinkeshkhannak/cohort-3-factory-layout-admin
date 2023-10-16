@@ -7,6 +7,7 @@ return (
             backgroundColor: color,
             height: "1px",
             width: '90%',
+            margin:0,
             
             
         }}

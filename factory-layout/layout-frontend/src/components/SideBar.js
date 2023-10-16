@@ -1,20 +1,17 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ColoredLine from './ColoredLine';
-import { MdSpaceDashboard   } from "react-icons/md";
-import { BsFillPieChartFill, BsTools } from "react-icons/bs";
+import {MdSpaceDashboard   } from "react-icons/md";
+import {BsFillPieChartFill, BsTools } from "react-icons/bs";
 import {RiRobot2Fill} from "react-icons/ri"
 
 
 import './Sidebar.css'
 
 
-import React, {useState, useEffect, useRef} from 'react';
-function SideBar() {
 
-
-
-
+function SideBar({ currentPage = 'dashboard' }) {
+  
 
 
 return (
@@ -23,18 +20,19 @@ return (
     <div>
       <Card.Title><RiRobot2Fill/>Capstone Project</Card.Title>
       <ColoredLine color='white'/>
-      <Button ><MdSpaceDashboard viewBox="3 2 19 19" />Dashboard</Button>
-      <Button  variant="dark"><BsTools/>Simulation</Button>
-      <Button  variant="dark"><BsFillPieChartFill/>Reports</Button>
+      <Button href='Dashboard'  variant={(currentPage === 1 || /dashboard/i.test(currentPage ))?'primary':'dark'}><MdSpaceDashboard viewBox="3 2 19 19" />Dashboard</Button>
+      <Button href='Simulation' variant={(currentPage === 2 || /simulation/i.test(currentPage))?'primary':'dark'}><BsTools/>Simulation</Button>
+      <Button href='Reports'    variant={(currentPage === 3 || /reports/i.test(currentPage   ))?'primary':'dark'}><BsFillPieChartFill/>Reports</Button>
     </div>
 
     <div>
       <ColoredLine />
-      <Button variant="dark" >Sign Out</Button>
+      <Button href='SignOut' variant="dark" >Sign Out</Button>
     </div>
   </Card>
 
     
 )
+
 }
 export default SideBar;
