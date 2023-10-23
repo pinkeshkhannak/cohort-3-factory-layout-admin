@@ -56,27 +56,26 @@ function changeArrayIndex(value, x, y){
   });}
 
 
-
 return (
-    
+
         <Card className='shadow-sm simulation-card'>
               <Card.Body>
-              
+
                 <Card.Title>Layout Configuration</Card.Title>
-                
+
                   <ColoredLine width ={'100%'}/>
-                
+
                 <Legend/>
-                
-                
+
+
 
                 <Container>
-                  {displayArray.map((currentArr, i) => 
+                  {displayArray.map((currentArr, i) =>
                   <Row>
                     {currentArr.map((currentItem, j)=>
 
-                    <Col  className='type-picker'> 
-                      
+                    <Col  className='type-picker'>
+
                       <Dropdown drop={"down-centered"}>
                         <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}></Dropdown.Toggle>
                         <Dropdown.Menu >
@@ -92,13 +91,13 @@ return (
                   )}
 
                 </Container>
-                
 
-                
+
+
               </Card.Body>
             </Card>
 
-    
+
 )
 }
 export default LayoutConfigurationCard;
