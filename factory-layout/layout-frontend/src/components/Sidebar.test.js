@@ -30,9 +30,10 @@ describe("SideBar testing", () => {
                   const linkElement = screen.getByText("Sign Out");
                   expect(linkElement).toBeInTheDocument();
                 });
+
     test('renders 3 buttons', async () => {
-      render(<Sidebar />)
-      const items = await screen.findAllByRole('button')
-      expect(items).toHaveLength(4)
-    })
+                  render(<Sidebar />)
+                  const items = await screen.findAllByRole('button')
+                  expect(items).toHaveLength(4)
+                })
 })

@@ -1,13 +1,15 @@
 
-function ColoredLine({ color }) {
+function ColoredLine({ color, width  = '90%' }) {
 return (
     <hr data-testid={"line"}
         style={{
             color: color,
             backgroundColor: color,
             height: "1px",
-            width: '90%',
 
+            width: width,
+            margin:0,
+            
 
         }}
     />

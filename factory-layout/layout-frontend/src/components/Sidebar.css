@@ -11,14 +11,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+
 }
 
-
-.side-bar > div:nth-child(2) > button{
+.side-bar > div:nth-child(2) > a{
     justify-content: center;
 }
 
-.side-bar > div > button, .side-bar > div > div{
+.side-bar > div > a, .side-bar > div > div{
     width: 90%;
     margin: 2.5% 0 2.5% 0;
     display: flex;
@@ -27,22 +27,25 @@
     padding-bottom: 1.5%;
 }
 
-.side-bar > div > button > svg, .side-bar > div > div >svg{
+.side-bar > div > a > svg, .side-bar > div > div >svg{
     margin-right: .5rem;
+    font-size: 1.25rem;
+}
+.side-bar > div > div >svg{
     font-size: 1.5rem;
 }
 
-.side-bar > div > button:hover {
+
+.side-bar > div > a:hover {
     background-color: #6f44e4;
     border-color: #6f44e4;
+
 }
 
-.side-bar > div > button:active {
+.side-bar > div > a:active {
     background-color: #613dc5 !important;
     border-color: #613dc5 !important;
-}
-.side-bar hr{
-    margin: 0;
+
 }
 
 

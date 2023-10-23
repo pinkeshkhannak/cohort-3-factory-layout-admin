@@ -2,6 +2,8 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SideBar from "./components/SideBar.js"
+import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js"
+
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -44,17 +46,18 @@ function App() {
 
     <Row >
         <Col sm={2}  style={{padding:"0"}}>
-            <SideBar/>
+            <SideBar currentPage='dashboard'/>
         </Col>
+        
 
         <Col sm={10}>
             <Container  fluid={true} className='display-flex align-center'>
                 
 
                 
-                <Row >
+                <Row className='w100p'>
                     <Col sm={8}>
-                        {/* put other components here */}
+                        <LayoutConfigurationCard/>
                     </Col>
                 
                     <Col sm={4}>
