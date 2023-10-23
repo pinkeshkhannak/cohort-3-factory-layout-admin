@@ -17,6 +17,9 @@
 }
 
 
+
+
+
 .simulation-card .type-picker {
     padding: 0;
 }
@@ -34,5 +37,10 @@
     border: #dee2e6 solid 1px;
 }
 
+.simulation-card .type-picker > div > button{
+    border-radius: .1rem;
+    text-align: end;
+  font-size: 150%;
 
+}
 
