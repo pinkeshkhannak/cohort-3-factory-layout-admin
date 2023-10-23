@@ -51,11 +51,11 @@ function App() {
         
 
         <Col sm={10}>
-            <Container  fluid={true} className='display-flex align-center'>
+            <Container  fluid={true} className='main-container'>
                 
 
                 
-                <Row className='w100p'>
+                <Row className='w100p display-flex'>
                     <Col sm={8}>
                         <LayoutConfigurationCard/>
                     </Col>

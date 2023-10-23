@@ -78,7 +78,7 @@ return (
                     <Col  className='type-picker'> 
                       
                       <Dropdown drop={"down-centered"}>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}></Dropdown.Toggle>
+                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}>          </Dropdown.Toggle>
                         <Dropdown.Menu >
                           <Dropdown.Item onClick={()=>{changeArrayIndex(0,i,j)}}><div className='open '></div></Dropdown.Item>
                           <Dropdown.Item onClick={()=>{changeArrayIndex(1,i,j)}}><div className='wall '></div></Dropdown.Item>
