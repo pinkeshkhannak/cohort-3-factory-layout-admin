@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SideBar from "./components/SideBar.js"
+import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js"
 
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -54,9 +55,9 @@ function App() {
                 
 
                 
-                <Row >
+                <Row className='w100p'>
                     <Col sm={8}>
-                        {/* put other components here */}
+                        <LayoutConfigurationCard/>
                     </Col>
                 
                     <Col sm={4}>
