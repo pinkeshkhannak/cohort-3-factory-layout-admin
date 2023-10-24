@@ -1,0 +1,16 @@
+
+
+
+#dropdown-basic-button {
+    color: #595c5f;
+    background-color: #fff;
+    text-align: left;
+}
+
+
+.settings > div >div{
+    
+display: flex;
+justify-content: center;
+flex-direction: column;
+}
