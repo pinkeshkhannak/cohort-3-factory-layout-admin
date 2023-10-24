@@ -16,6 +16,20 @@
     background: #e35d6a !important;
 }
 
+/* Card sizing jazz */
+.simulation-card {
+  width: 650px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.simulation-card .type-picker > div,
+.simulation-card .type-picker > div > button {
+  width: 35px;
+  height: 40px;
+  font-size: 100%;
+}
+
 .simulation-card .type-picker {
     padding: 0;
 }
