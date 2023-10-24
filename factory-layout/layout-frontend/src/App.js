@@ -2,6 +2,7 @@ import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import SideBar from "./components/SideBar.js"
+import Settings from "./components/Settings.js"
 import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js"
 
 import Container from 'react-bootstrap/Container';
@@ -55,13 +56,15 @@ function App() {
                 
 
                 
+                
+                        
                 <Row className='w100p display-flex'>
                     <Col sm={8}>
                         <LayoutConfigurationCard/>
                     </Col>
                 
                     <Col sm={4}>
-                        {/* put other components here */}
+                        <Settings currentPage='dashboard'/>
                     </Col>
 
                 </Row>
