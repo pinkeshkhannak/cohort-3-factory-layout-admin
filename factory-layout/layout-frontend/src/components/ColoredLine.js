@@ -6,10 +6,11 @@ return (
             color: color,
             backgroundColor: color,
             height: "1px",
+
             width: width,
             margin:0,
             
-            
+
         }}
     />
 )

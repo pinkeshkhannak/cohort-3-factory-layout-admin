@@ -29,13 +29,13 @@ function backgroundChooser(value){
   switch (value) {
     case 0:
       return 'open';
-      
+
     case 1:
       return 'wall';
-      
+
     case 2:
       return 'robot';
-     
+
     case 3:
       return 'end';
 
@@ -44,7 +44,7 @@ function backgroundChooser(value){
 
     default:
       return 'open';
-      
+
   }
 }
 
@@ -58,25 +58,25 @@ function changeArrayIndex(value, x, y){
 
 
 return (
-    
+
         <Card className='shadow-sm simulation-card'>
               <Card.Body>
-              
+
                 <Card.Title>Layout Configuration</Card.Title>
-                
+
                   <ColoredLine width ={'100%'}/>
-                
+
                 <Legend/>
-                
-                
+
+
 
                 <Container>
-                  {displayArray.map((currentArr, i) => 
+                  {displayArray.map((currentArr, i) =>
                   <Row>
                     {currentArr.map((currentItem, j)=>
 
-                    <Col  className='type-picker'> 
-                      
+                    <Col  className='type-picker'>
+
                       <Dropdown drop={"down-centered"}>
                         <Dropdown.Toggle data-testid={"dd-button" + j+i} variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}>          </Dropdown.Toggle>
                         <Dropdown.Menu data-testid={"dd-menu"+ j+i}>
@@ -93,13 +93,13 @@ return (
                   )}
 
                 </Container>
-                
 
-                
+
+
               </Card.Body>
             </Card>
 
-    
+
 )
 }
 export default LayoutConfigurationCard;

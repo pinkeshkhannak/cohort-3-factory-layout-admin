@@ -1,6 +1,8 @@
+import React, { useState } from 'react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import ColoredLine from './ColoredLine';
+
 import {MdSpaceDashboard   } from "react-icons/md";
 import {BsFillPieChartFill, BsTools } from "react-icons/bs";
 import {RiRobot2Fill} from "react-icons/ri"
@@ -11,7 +13,6 @@ import './Sidebar.css'
 
 
 function SideBar({ currentPage = 'dashboard' }) {
-  
 
 
 return (
@@ -35,4 +36,6 @@ return (
 )
 
 }
+
 export default SideBar;
+
