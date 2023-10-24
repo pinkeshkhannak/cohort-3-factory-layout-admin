@@ -22,14 +22,14 @@ return (
     <form>
 
   <div>
-    <input type="name" className="btn btn-light" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name"/>
+    <input type="name" className="btn btn-secondary" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name"/>
   </div>
 
   <p></p>
 
   <Dropdown>
 
-      <Dropdown.Toggle variant="btn btn-light" id="dropdown-basic-button" >
+      <Dropdown.Toggle variant="btn btn-secondary" id="dropdown-basic-button" >
         Initial Facing Direction
       </Dropdown.Toggle>
 
@@ -44,7 +44,7 @@ return (
       </Dropdown>
   </form>
   <p></p>
-  <div className="justify-buttons" >
+  <div className="save-cancel" >
     <button type="button" className="btn btn-secondary">Cancel</button>
     <button type="button" className="btn btn-primary">Save</button>
   </div>
