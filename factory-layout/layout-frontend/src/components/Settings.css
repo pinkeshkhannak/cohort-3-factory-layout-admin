@@ -1,6 +1,4 @@
 
-
-
 #dropdown-basic-button {
     color: #595c5f;
     background-color: #fff;
@@ -8,9 +6,14 @@
 }
 
 
-.settings > div >div{
-    
-display: flex;
-justify-content: center;
-flex-direction: column;
+
+
+.justify-buttons {
+    justify-content: space-between;
+    justify-self: flex-end;
+    align-self: flex-end;
+}
+
+.settings > div > div>div > form > div > * {
+width: 100%;
 }

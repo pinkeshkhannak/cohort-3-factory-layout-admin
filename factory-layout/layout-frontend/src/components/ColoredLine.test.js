@@ -8,7 +8,8 @@ describe("ColoredLine testing", () => {
       const items = await screen.getByTestId('line')
       expect(items).toBeInTheDocument();
     })
-    test('renders 1 line', async () => {
+    
+    test('renders 1 line that is black', async () => {
           render(<ColoredLine color={'black'}/>)
           const items = await screen.getByTestId('line')
           expect(items.style._values.color).toEqual('black');

@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import ColoredLine from './ColoredLine';
 import Dropdown from 'react-bootstrap/Dropdown';
 import './Settings.css';
+import Stack from 'react-bootstrap/Stack';
 
 
 function Settings({ currentPage = 'dashboard' }) {
@@ -11,17 +12,17 @@ function Settings({ currentPage = 'dashboard' }) {
 
 return (
   <Card className='settings'>
-   <div class="card">
+   <div className="card">
 
-  <div class="card-body">
+  <div className="card-body">
+  <Stack gap={3}>
+    <h5 className="card-title">Settings</h5>
+    <ColoredLine width={"100%"}/>
 
-    <h5 class="card-title">Settings</h5>
-    <ColoredLine />
-<p></p>
     <form>
 
   <div>
-    <input type="name" class="btn btn-light" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name"/>
+    <input type="name" className="btn btn-light" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name"/>
   </div>
 
   <p></p>
@@ -43,13 +44,11 @@ return (
       </Dropdown>
   </form>
   <p></p>
-  <div class="btn-group mr-2" role="group" aria-label="First group">
-    <button type="button" class="btn btn-secondary">Cancel</button>
+  <div className="justify-buttons" >
+    <button type="button" className="btn btn-secondary">Cancel</button>
+    <button type="button" className="btn btn-primary">Save</button>
   </div>
-  <div class="btn-group mr-2" role="group" aria-label="Second group">
-    <button type="button" class="btn btn-primary">Save</button>
-  </div>
-  
+  </Stack>
   </div>
   
 </div> 
