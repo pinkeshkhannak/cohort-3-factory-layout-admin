@@ -78,12 +78,13 @@ return (
                     <Col  className='type-picker'> 
                       
                       <Dropdown drop={"down-centered"}>
-                        <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}>          </Dropdown.Toggle>
-                        <Dropdown.Menu >
-                          <Dropdown.Item onClick={()=>{changeArrayIndex(0,i,j)}}><div className='open '></div></Dropdown.Item>
-                          <Dropdown.Item onClick={()=>{changeArrayIndex(1,i,j)}}><div className='wall '></div></Dropdown.Item>
-                          <Dropdown.Item onClick={()=>{changeArrayIndex(2,i,j)}}><div className='robot '></div></Dropdown.Item>
-                          <Dropdown.Item onClick={()=>{changeArrayIndex(3,i,j)}}><div className='end '></div></Dropdown.Item>
+                        <Dropdown.Toggle data-testid={"dd-button" + j+i} variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}>          </Dropdown.Toggle>
+                        <Dropdown.Menu data-testid={"dd-menu"+ j+i}>
+
+                          <Dropdown.Item                      onClick={()=>{changeArrayIndex(0,i,j)}}><div className='open '></div></Dropdown.Item>
+                          <Dropdown.Item data-testid={'wall'} onClick={()=>{changeArrayIndex(1,i,j)}}><div className='wall '></div></Dropdown.Item>
+                          <Dropdown.Item                      onClick={()=>{changeArrayIndex(2,i,j)}}><div className='robot '></div></Dropdown.Item>
+                          <Dropdown.Item                      onClick={()=>{changeArrayIndex(3,i,j)}}><div className='end '></div></Dropdown.Item>
                         </Dropdown.Menu>
                       </Dropdown>
 
