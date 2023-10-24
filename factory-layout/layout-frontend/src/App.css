@@ -1,13 +1,12 @@
-.display-flex{
+.display-flex {
   display: flex;
 }
 
-.w100p{
+.w100p {
   width: 100%;
 }
 
-
-.main-container{
+.main-container {
   display: flex;
   justify-content: center;
   align-items: center;

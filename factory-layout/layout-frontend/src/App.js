@@ -1,20 +1,19 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
-import SideBar from "./components/SideBar.js"
-import Settings from "./components/Settings.js"
-import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js"
+import SideBar from "./components/SideBar.js";
+import Settings from "./components/Settings.js";
+import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js";
 
-import Container from 'react-bootstrap/Container';
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 function App() {
   return (
-    <Container fluid={true} className='page' >
-
-        <style type="text/css">
-            {`
+    <Container fluid={true} className="page">
+      <style type="text/css">
+        {`
         .btn-primary {
         
             --bs-btn-bg: #7749f8;
@@ -43,35 +42,28 @@ function App() {
         }
         
         `}
-        </style>
+      </style>
 
-    <Row >
-        <Col sm={2}  style={{padding:"0"}}>
-            <SideBar currentPage='dashboard'/>
+      <Row>
+        <Col sm={2} style={{ padding: "0" }}>
+          <SideBar currentPage="dashboard" />
         </Col>
-        
 
         <Col sm={10}>
-            <Container  fluid={true} className='main-container'>
-                
+          <Container fluid={true} className="main-container">
+            <Row className="w100p display-flex">
+              <Col sm={8}>
+                <LayoutConfigurationCard />
+              </Col>
 
-                
-                
-                        
-                <Row className='w100p display-flex'>
-                    <Col sm={8}>
-                        <LayoutConfigurationCard/>
-                    </Col>
-                
-                    <Col sm={4}>
-                        <Settings currentPage='dashboard'/>
-                    </Col>
-
-                </Row>
-            </Container>
+              <Col sm={4}>
+                <Settings currentPage="dashboard" />
+              </Col>
+            </Row>
+          </Container>
         </Col>
-    </Row>
-</Container>
+      </Row>
+    </Container>
   );
 }
 
