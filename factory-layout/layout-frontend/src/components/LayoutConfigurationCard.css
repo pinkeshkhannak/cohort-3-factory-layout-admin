@@ -16,10 +16,6 @@
     background: #e35d6a !important;
 }
 
-
-
-
-
 .simulation-card .type-picker {
     padding: 0;
 }
@@ -40,6 +36,4 @@
 .simulation-card .type-picker > div > button{
     border-radius: .1rem;
     text-align: end;
-  font-size: 150%;
-  
 }
