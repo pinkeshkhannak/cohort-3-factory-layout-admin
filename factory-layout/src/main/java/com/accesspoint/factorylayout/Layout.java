@@ -1,7 +1,6 @@
 package com.accesspoint.factorylayout;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.util.List;
@@ -12,13 +11,17 @@ class Layout {
     /*
     Field Properties
      */
-    public Long layoutID;
+    @Id
+    public Long layout_id;
     public String name;
+
+    @Enumerated(EnumType.STRING)
     public Direction direction;
 
     /*
     Relationships
      */
+    @OneToMany()
     public List<Cell> cells;
 
 

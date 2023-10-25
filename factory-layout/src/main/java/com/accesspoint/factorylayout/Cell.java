@@ -1,7 +1,6 @@
 package com.accesspoint.factorylayout;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 
 @Data
@@ -11,9 +10,13 @@ class Cell {
     /*
     Field Properties
      */
+    @ManyToOne
+    @JoinColumn(name="layout_id", nullable=false)
     public Long layout_id;
     public Short column_index;
     public Short  row_index;
+
+    @Enumerated(EnumType.STRING)
     public CellState cell_state;
 
     /*
