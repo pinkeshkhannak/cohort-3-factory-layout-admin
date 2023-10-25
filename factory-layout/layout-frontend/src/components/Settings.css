@@ -1,36 +1,30 @@
-
 #dropdown-basic-button {
-    color: #595c5f;
-    background-color: #fff;
-    text-align: left;
+  color: #595c5f;
+  background-color: #fff;
+  text-align: left;
 }
-
-
-
 
 .save-cancel {
-    display: flex;
-    justify-content: space-between;
-    justify-self: flex-end;
-    align-self: flex-end;
-    
+  display: flex;
+  justify-content: space-between;
+  justify-self: flex-end;
+  align-self: flex-end;
 }
 
-.settings > div > div> div > form > div > :nth-child(1) {
-width: 100%;
-display: flex;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
+.settings > div > div > div > form > div > :nth-child(1) {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-align: left;
 }
 
-.save-cancel  >:nth-child(1){
-    background-color: #6c757d;
-    color: #fff;
-    margin-right:  1rem;
+.save-cancel > :nth-child(1) {
+  background-color: #6c757d;
+  color: #fff;
+  margin-right: 1rem;
 }
-.save-cancel  >:nth-child(1):active{
-    background-color: #677077;
-    color: #fff;
-
+.save-cancel > :nth-child(1):active {
+  background-color: #677077;
+  color: #fff;
 }

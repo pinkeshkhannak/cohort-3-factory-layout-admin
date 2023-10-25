@@ -1,45 +1,50 @@
-.open, .open:hover, .open:active{
-    background: #fff !important;
+.open,
+.open:hover,
+.open:active {
+  background: #fff !important;
 }
 
-.wall, .wall:hover, .wall:active{
-    background: #ced4da !important;
+.wall,
+.wall:hover,
+.wall:active {
+  background: #ced4da !important;
 }
 
-.robot, .robot:hover, .robot:active{
-    background: #479f76 !important;
+.robot,
+.robot:hover,
+.robot:active {
+  background: #479f76 !important;
 }
-.path, .path:hover, .path:active{
-    background: #a3cfbb !important;
+.path,
+.path:hover,
+.path:active {
+  background: #a3cfbb !important;
 }
-.end, .end:hover, .end:active{
-    background: #e35d6a !important;
+.end,
+.end:hover,
+.end:active {
+  background: #e35d6a !important;
 }
-
-
-
-
 
 .simulation-card .type-picker {
-    padding: 0;
+  padding: 0;
 }
 
-.simulation-card .type-picker > div, .simulation-card .type-picker > div > button{
-    width: 100%;
+.simulation-card .type-picker > div,
+.simulation-card .type-picker > div > button {
+  width: 100%;
 }
 
-.simulation-card .type-picker > div > div{
-    min-width: 0
+.simulation-card .type-picker > div > div {
+  min-width: 0;
 }
-.simulation-card .type-picker > div > div > a >div{
-    height: 2rem;
-    width: 2rem;
-    border: #dee2e6 solid 1px;
+.simulation-card .type-picker > div > div > a > div {
+  height: 2rem;
+  width: 2rem;
+  border: #dee2e6 solid 1px;
 }
 
-.simulation-card .type-picker > div > button{
-    border-radius: .1rem;
-    text-align: end;
-  font-size: 150%;
-  
+.simulation-card .type-picker > div > button {
+  border-radius: 0.1rem;
+  text-align: end;
 }
