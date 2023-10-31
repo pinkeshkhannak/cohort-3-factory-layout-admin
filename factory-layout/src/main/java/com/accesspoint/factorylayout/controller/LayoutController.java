@@ -1,0 +1,21 @@
+package com.accesspoint.factorylayout.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.accesspoint.factorylayout.Layout;
+import com.accesspoint.factorylayout.repository.LayoutRepository;
+
+@Controller
+@RequestMapping("/layouts")
+public class LayoutController{
+    @Autowired
+    LayoutRepository layoutRepository;
+
+    @PostMapping("/")
+    public Layout createLayout(@RequestBody Layout layout) {
+        return layoutRepository.save(layout);
+    }
+
+}
