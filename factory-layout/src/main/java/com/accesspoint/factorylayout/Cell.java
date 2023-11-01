@@ -1,10 +1,10 @@
 package com.accesspoint.factorylayout;
 
-
 import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 import lombok.Data;
 //NonNull is provided by default by package-info
+
 
 @Data
 @Entity

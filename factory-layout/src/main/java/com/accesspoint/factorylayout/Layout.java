@@ -1,6 +1,5 @@
 package com.accesspoint.factorylayout;
 
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -9,6 +8,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.Data;
 //NonNull is provided by default by package-info
+
 
 import java.util.List;
 @Data
@@ -47,5 +47,6 @@ class Layout {
 
         return grid;
     }
+
 }
 
