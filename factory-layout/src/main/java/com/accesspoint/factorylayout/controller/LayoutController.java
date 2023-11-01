@@ -8,7 +8,7 @@ import com.accesspoint.factorylayout.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
 
 @Controller
-@RequestMapping("/layouts")
+@RequestMapping("/api/layouts")
 public class LayoutController{
     @Autowired
     LayoutRepository layoutRepository;
