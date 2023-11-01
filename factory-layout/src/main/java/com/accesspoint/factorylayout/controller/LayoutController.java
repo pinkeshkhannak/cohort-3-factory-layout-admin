@@ -13,9 +13,11 @@ public class LayoutController{
     @Autowired
     LayoutRepository layoutRepository;
 
-    @PostMapping("/")
+    @PostMapping("/save")
     public Layout createLayout(@RequestBody Layout layout) {
         return layoutRepository.save(layout);
     }
+
+
 
 }
