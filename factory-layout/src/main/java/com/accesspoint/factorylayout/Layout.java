@@ -1,21 +1,31 @@
 package com.accesspoint.factorylayout;
 
-import jakarta.persistence.*;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.Data;
+//NonNull is provided by default by package-info
 
 import java.util.List;
 @Data
 @Entity
 @Table(name = "layout")
+
 class Layout {
     /*
     Field Properties
      */
     @Id
     public Long layout_id;
+
     public String name;
 
     @Enumerated(EnumType.STRING)
+
     public Direction direction;
 
     /*
