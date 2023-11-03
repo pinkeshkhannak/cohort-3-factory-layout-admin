@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import com.accesspoint.factorylayout.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
 
+import java.util.List;
+
 @Controller
 @RequestMapping("/api/layouts")
 public class LayoutController{
@@ -18,6 +20,28 @@ public class LayoutController{
         return layoutRepository.save(layout);
     }
 
+    @GetMapping("/{layoutId}")
+    public Layout getLayoutById(@PathVariable Long layoutId) {
+        return layoutRepository.findById(layoutId).orElse(null);
+    }
 
+    @GetMapping("/all")
+    public List<Layout> getAllLayouts() {
+        return layoutRepository.findAll();
+    }
 
+    @PutMapping("/{layoutId}")
+    public Layout updateLayout(@PathVariable Long layoutId, @RequestBody Layout updatedLayout) {
+        if (layoutRepository.existsById(layoutId)) {
+            updatedLayout.setLayoutId(layoutId);
+            return layoutRepository.save(updatedLayout);
+        } else {
+            return null;
+        }
+    }
+
+    @DeleteMapping("/{layoutId}")
+    public void deleteLayout(@PathVariable Long layoutId) {
+        layoutRepository.deleteById(layoutId);
+    }
 }

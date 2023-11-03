@@ -16,6 +16,10 @@ class Layout {
     public Long layout_id;
     public String name;
 
+    public void setLayoutId(Long layoutId) {
+        this.layout_id = layoutId;
+    }
+
     @Enumerated(EnumType.STRING)
     public Direction direction;
 
