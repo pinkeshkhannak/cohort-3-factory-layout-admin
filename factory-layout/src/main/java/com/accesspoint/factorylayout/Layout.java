@@ -14,7 +14,7 @@ import java.util.List;
 @Data
 @Entity
 @Table(name = "layout")
-
+public
 class Layout {
     /*
     Field Properties
