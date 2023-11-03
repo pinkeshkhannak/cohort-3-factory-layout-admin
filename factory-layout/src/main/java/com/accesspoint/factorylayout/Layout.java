@@ -6,16 +6,18 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
-import lombok.Data;
+
 //NonNull is provided by default by package-info
 
 
 import java.util.List;
-@Data
-@Entity
+//
+//@Data
+//@Entity
 @Table(name = "layout")
-public
-class Layout {
+
+
+public class Layout {
     /*
     Field Properties
      */
@@ -46,7 +48,7 @@ class Layout {
         Cell[][] grid = new Cell[9][9];
 
         for (Cell cell: this.cells) {
-            grid[cell.column_index][cell.row_index] = cell;
+            grid[cell.getColumn_index()][cell.getRow_index()] = cell;
         }
 
         return grid;
