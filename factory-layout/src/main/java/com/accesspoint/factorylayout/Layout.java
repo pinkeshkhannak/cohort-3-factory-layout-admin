@@ -16,6 +16,7 @@ import java.util.List;
 //@Entity
 @Table(name = "layout")
 
+
 public class Layout {
     /*
     Field Properties
@@ -24,6 +25,10 @@ public class Layout {
     public Long layout_id;
 
     public String name;
+
+    public void setLayoutId(Long layoutId) {
+        this.layout_id = layoutId;
+    }
 
     @Enumerated(EnumType.STRING)
 
