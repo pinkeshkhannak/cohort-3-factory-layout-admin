@@ -37,6 +37,7 @@ function Settings({ currentPage = "dashboard" }) {
                   </Dropdown.Menu>
                 </Dropdown>
               </Stack>
+
             </form>
 
             <div className="save-cancel">
