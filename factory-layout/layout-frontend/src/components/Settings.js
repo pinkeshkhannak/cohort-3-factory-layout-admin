@@ -22,6 +22,7 @@ function Settings({ currentPage = "dashboard" }) {
               <p></p>
 
               <Dropdown>
+                
                 <Dropdown.Toggle variant="btn btn-secondary" id="dropdown-basic-button">
                   Initial Facing Direction
                 </Dropdown.Toggle>
