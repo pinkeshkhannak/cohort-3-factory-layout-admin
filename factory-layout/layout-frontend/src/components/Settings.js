@@ -75,7 +75,7 @@ function Settings() {
                 Cancel
 
               </button>
-              <button type="button" className="btn btn-primary" onClick={saveLayoutInformation}>
+              <button type="button" className="btn btn-primary" >
                 Save
 
               </button>
