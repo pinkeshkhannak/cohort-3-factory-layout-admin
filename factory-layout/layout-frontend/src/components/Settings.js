@@ -34,7 +34,8 @@ function Settings() {
                 <input type="text" className="btn btn-secondary" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name" value={layoutName} onChange={handleLayoutNameChange} />
               </div>
 
-              <p></p>
+                <Dropdown>
+                  <Dropdown.Toggle variant="btn btn-secondary">Initial Facing Direction</Dropdown.Toggle>
 
               <Dropdown>
                 <Dropdown.Toggle variant="btn btn-secondary" id="dropdown-basic-button" >
@@ -71,13 +72,12 @@ function Settings() {
             </form>
             <br/>
             <div className="save-cancel">
-              <button type="button" className="btn btn-secondary">
+              <Button href="Dashboard" variant="dark">
                 Cancel
 
-              </button>
-              <button type="button" className="btn btn-primary" >
+              </Button>
+              <button type="button" className="btn btn-primary">
                 Save
-
               </button>
             </div>
           </Stack>
