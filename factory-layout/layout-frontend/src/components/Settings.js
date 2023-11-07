@@ -30,9 +30,11 @@ function Settings() {
             <ColoredLine width={"100%"} />
 
             <form>
+            <Stack gap={3}>
               <div>
                 <input type="text" className="btn btn-secondary" id="exampleInputEmail1" aria-describedby="layoutName" placeholder="Layout Name" value={layoutName} onChange={handleLayoutNameChange} />
               </div>
+
 
                 
               <Dropdown>
@@ -67,6 +69,7 @@ function Settings() {
 
                 </Dropdown.Menu>
               </Dropdown>
+              </Stack>
             </form>
             <br/>
             <div className="save-cancel">
