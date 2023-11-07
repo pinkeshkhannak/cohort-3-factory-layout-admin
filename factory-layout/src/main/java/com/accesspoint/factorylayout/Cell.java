@@ -7,16 +7,24 @@ import jakarta.persistence.*;
 
 
 //
-//@Entity
-@Table(name = "cell")
+@Entity
+ @Table(name = "cell")
 public class Cell {
     /*
     Field Properties
      */
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cell_id")
+    private Long cell_id;
+
+    //    /*
+    //    Relationships
+    //     */
     @ManyToOne
     @JoinColumn(name="layout_id", nullable=false)
-    @Id
-    private Long layout_id;
+    private Layout layout;
+
 
     private Short column_index;
 
@@ -25,10 +33,7 @@ public class Cell {
     @Enumerated(EnumType.STRING)
     private CellState cell_state;
 
-    /*
-    Relationships
-     */
-    private Layout layout;
+
 
     public Short getColumn_index() {
         return column_index;
