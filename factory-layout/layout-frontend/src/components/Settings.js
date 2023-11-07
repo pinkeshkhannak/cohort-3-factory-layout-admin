@@ -21,6 +21,29 @@ function Settings() {
     setFacingDirection(direction);
   };
 
+    const handleSaveLayout = () => {
+      const layoutData = {
+        layoutName,
+        facingDirection,
+        displayArray: [],
+      };
+
+      fetch("/api/layouts/save", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(layoutData),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("Layout saved successfully", data);
+        })
+        .catch((error) => {
+          console.error("Error saving layout", error);
+        });
+    };
+
   return (
     <Card className="settings">
       <div className="card">
@@ -77,7 +100,7 @@ function Settings() {
                 Cancel
 
               </Button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" >
                 Save
               </button>
             </div>
@@ -85,10 +108,7 @@ function Settings() {
         </div>
       </div>
 
-      <settingsInfo
-      layoutName={layoutName} // Pass layoutName to LayoutConfigurationCard
-      facingDirection={facingDirection} // Pass facingDirection to LayoutConfigurationCard
-     />
+
 
     </Card>
   );
