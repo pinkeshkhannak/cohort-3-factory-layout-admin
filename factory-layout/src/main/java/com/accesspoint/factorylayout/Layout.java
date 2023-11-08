@@ -2,12 +2,12 @@ package com.accesspoint.factorylayout;
 
 import jakarta.persistence.*;
 
+
 //NonNull is provided by default by package-info
 
 
 import java.util.List;
-//
-//@Data
+
 @Entity
 @Table(name = "layout")
 
@@ -21,36 +21,70 @@ public class Layout {
     @Column(name = "layout_id")
     private Long layout_id;
 
-    //    /*
-    //    Relationships
-    //     */
-    @OneToMany()
-    public List<Cell> cells;
-
+    @Column(name = "name")
     private String name;
 
-
     @Enumerated(EnumType.STRING)
-    public Direction direction;
+    private Direction direction;
 
+//
+//    //    /*
+//    //    Relationships
+//    //     */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "layout")
+    public List<Cell> cells;
 
 
 
     /*
+   Constructor
+      */
+    public Layout(String name, Direction direction) {
+        this.name = name;
+        this.direction = direction;
+    }
+
+
+    public Layout(String name, Direction direction, List<Cell> cells) {
+        this.name = name;
+        this.direction = direction;
+        this.cells = cells;
+    }
+
+        /*
+   Getter and setter
+      */
+
+    public Long getLayout_id() {
+        return layout_id;
+    }
+
+    public void setLayout_id(Long layout_id) {
+        this.layout_id = layout_id;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Layout{" +
+                "layout_id=" + layout_id +
+                ", name='" + name + '\'' +
+                ", direction=" + direction +
+                ", cells=" + cells +
+                '}';
+    }
+
+    /*
     How to convert rows and columns to an array of arrays
      */
-//    public Cell[][] getGrid() {
-//        Cell[][] grid = new Cell[9][9];
-//
-//        for (Cell cell: this.cells) {
-//            grid[cell.getColumn_index()][cell.getRow_index()] = cell;
-//        }
-//
-//        return grid;
-//    }
+    public Cell[][] getGrid() {
+        Cell[][] grid = new Cell[9][9];
 
-    public void setLayoutId(Long layoutId) {
-        this.layout_id = layoutId;
+        for (Cell cell: this.cells) {
+            grid[cell.getColumn_index()][cell.getRow_index()] = cell;
+        }
+
+        return grid;
     }
 
 }
