@@ -33,6 +33,9 @@ public class Cell {
     @Enumerated(EnumType.STRING)
     private CellState cell_state;
 
+//    @Transient
+//    private Layout tempLayout;
+
     //------------------------------------
 
 
@@ -41,6 +44,14 @@ public class Cell {
         this.row_index = row_index;
         this.cell_state = cell_state;
     }
+
+//    public Cell(Long cell_id, Integer column_index, Integer row_index, CellState cell_state, Layout tempLayout) {
+//        this.cell_id = cell_id;
+//        this.column_index = column_index;
+//        this.row_index = row_index;
+//        this.cell_state = cell_state;
+//        this.tempLayout = tempLayout;
+//    }
 
     public Long getCell_id() {
         return cell_id;

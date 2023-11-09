@@ -1,5 +1,5 @@
 package com.accesspoint.factorylayout;
 
 public enum Direction {
-    North, South, East, West
+    NORTH, SOUTH, EAST, WEST
 }

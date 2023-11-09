@@ -51,17 +51,16 @@ public class InputClass {
         int current = this.arrays[row][col];
         switch(current) {
             case 0:
-                return CellState.Open;
-
+                return CellState.OPEN;
             case 1:
-                return CellState.Wall;
+                return CellState.WALL;
             case 2:
-                return CellState.Start;
+                return CellState.START;
             case 3:
-                return CellState.End;
+                return CellState.END;
 
             default:
-                return CellState.Open;
+                return CellState.OPEN;
         }
     }
 
