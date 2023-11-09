@@ -7,7 +7,11 @@ import Stack from "react-bootstrap/Stack";
 import React, { useState } from "react";
 
 function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection, layoutName, onSave }) {
-  return (
+
+function toCapital(word){
+    return word.toLowerCase()[0].toUpperCase() + word.toLowerCase().slice(1)
+}
+return (
     <Card className="settings">
       <div className="card">
         <div className="card-body">
@@ -31,13 +35,13 @@ function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection
 
                 <Dropdown>
                   <Dropdown.Toggle variant="btn btn-secondary" id="dropdown-basic-button">
-                    {facingDirection ? facingDirection : "Initial Facing Direction"}
+                    {facingDirection ? toCapital(facingDirection) : "Initial Facing Direction"}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("North");
+                        onFacingDirectionChange("NORTH");
                       }}
                     >
                       North
@@ -45,7 +49,7 @@ function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("East");
+                        onFacingDirectionChange("EAST");
                       }}
                     >
                       East
@@ -53,7 +57,7 @@ function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("South");
+                        onFacingDirectionChange("SOUTH");
                       }}
                     >
                       South
@@ -61,7 +65,7 @@ function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("West");
+                        onFacingDirectionChange("WEST");
                       }}
                     >
                       West
