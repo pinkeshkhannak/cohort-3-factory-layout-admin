@@ -27,11 +27,11 @@ public class Layout {
     @Enumerated(EnumType.STRING)
     private Direction direction;
 
-//
-//    //    /*
-//    //    Relationships
-//    //     */
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "layout")
+
+    /*
+    Relationships
+    */
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "layout", fetch = FetchType.EAGER, orphanRemoval = true)
     public List<Cell> cells;
 
 
@@ -63,6 +63,13 @@ public class Layout {
         this.layout_id = layout_id;
     }
 
+    public List<Cell> getCells() {
+        return cells;
+    }
+
+    public void setCells(List<Cell> cells) {
+        this.cells = cells;
+    }
 
     @Override
     public String toString() {

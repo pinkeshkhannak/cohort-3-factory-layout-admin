@@ -21,7 +21,7 @@ public class Cell {
     //    /*
     //    Relationships
     //     */
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne()
     @JoinColumn(name="layout_id")
     private Layout layout;
 
@@ -33,25 +33,18 @@ public class Cell {
     @Enumerated(EnumType.STRING)
     private CellState cell_state;
 
-//    @Transient
-//    private Layout tempLayout;
+
 
     //------------------------------------
 
 
-    public Cell(Integer column_index, Integer row_index, CellState cell_state) {
+    public Cell( Integer column_index, Integer row_index, CellState cell_state, Layout layout) {
+
         this.column_index = column_index;
         this.row_index = row_index;
         this.cell_state = cell_state;
+        this.layout = layout;
     }
-
-//    public Cell(Long cell_id, Integer column_index, Integer row_index, CellState cell_state, Layout tempLayout) {
-//        this.cell_id = cell_id;
-//        this.column_index = column_index;
-//        this.row_index = row_index;
-//        this.cell_state = cell_state;
-//        this.tempLayout = tempLayout;
-//    }
 
     public Long getCell_id() {
         return cell_id;
@@ -79,18 +72,6 @@ public class Cell {
 
     public Integer getRow_index() {
         return row_index;
-    }
-
-    public void setRow_index(Integer row_index) {
-        this.row_index = row_index;
-    }
-
-    public CellState getCell_state() {
-        return cell_state;
-    }
-
-    public void setCell_state(CellState cell_state) {
-        this.cell_state = cell_state;
     }
 
     @Override
