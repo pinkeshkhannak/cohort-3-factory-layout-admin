@@ -11,17 +11,10 @@ import Legend from "./Legend";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
 
-function LayoutConfigurationCard({onCellDataChange}) {
-
- const [cellState, setCellState] = useState(0);
- const [cellColumnIndex, setCellColumnIndex] = useState(0);
- const [cellRowIndex, setCellRowIndex] = useState(0);
-
- const handleCellDataChange = (cellData) => {
-   setCellState(cellData.cell_state);
-   setCellColumnIndex(cellData.column_index);
-   setCellRowIndex(cellData.row_index);
- };
+function LayoutConfigurationCard({ onCellDataChange }) {
+  const [cellState, setCellState] = useState(0);
+  const [cellColumnIndex, setCellColumnIndex] = useState(0);
+  const [cellRowIndex, setCellRowIndex] = useState(0);
 
   const [displayArray, changeArray] = useState([
     [0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -58,24 +51,16 @@ function LayoutConfigurationCard({onCellDataChange}) {
   }
 
   function changeArrayIndex(value, x, y) {
-  setCellState(value);
-  setCellColumnIndex(y);
-  setCellRowIndex(x);
-
-  onCellDataChange({
-        cell_state: value,
-        column_index: y,
-        row_index: x,
-      });
+    setCellState(value);
+    setCellColumnIndex(y);
+    setCellRowIndex(x);
 
     changeArray((prevArray) => {
       const newArray = [...prevArray];
       newArray[x][y] = value;
       return newArray;
     });
-
   }
-
   return (
     <Card className="shadow-sm simulation-card">
       <Card.Body>

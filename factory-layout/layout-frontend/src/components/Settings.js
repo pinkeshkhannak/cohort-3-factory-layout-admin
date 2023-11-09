@@ -10,21 +10,9 @@ function Settings(props) {
   const {
     layoutName,
     onLayoutNameChange,
-    cellState,
-    cellColumnIndex,
-    cellRowIndex,
     onSaveLayout,
     onFacingDirectionChange
   } = props;
-
-  const handleSaveLayout = () => {
-    onSaveLayout({
-      layoutName,
-      cellState,
-      cellColumnIndex,
-      cellRowIndex,
-    });
-  };
 
   return (
         <Card className="settings">
@@ -94,7 +82,7 @@ function Settings(props) {
                   <Button href="Dashboard" variant="dark">
                     Cancel
                   </Button>
-                  <button type="button" className="btn btn-primary">
+                  <button type="button" className="btn btn-primary" onClick={onSaveLayout}>
                     Save
                   </button>
                 </div>

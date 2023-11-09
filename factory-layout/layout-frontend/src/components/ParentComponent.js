@@ -66,7 +66,9 @@ function ParentComponent() {
             onFacingDirectionChange={handleFacingDirectionChange}
             onSaveLayout={handleSaveLayout}
       />
-      <LayoutConfigurationCard onCellDataChange={handleCellDataChange} />
+      <LayoutConfigurationCard
+      onCellDataChange={handleCellDataChange}
+      />
     </div>
   );
 }
