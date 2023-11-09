@@ -43,16 +43,10 @@ const handleSave = () => {
   const layoutData = {
     name: layoutName,
     direction: facingDirection,
-    cells: displayArray.map((row, rowIndex) =>
-      row.map((cellState, columnIndex) => ({
-        column_index: columnIndex,
-        row_index: rowIndex,
-        cell_state: cellState,
-      }))
-    ),
-  };
+    arrays: displayArray,
+      };
 
-  fetch("/api/save", {
+  fetch("/api/layouts/save", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
