@@ -10,18 +10,11 @@ import ColoredLine from "./ColoredLine";
 import Legend from "./Legend";
 import Dropdown from "react-bootstrap/Dropdown";
 import DropdownButton from "react-bootstrap/DropdownButton";
-function LayoutConfigurationCard() {
-  const [displayArray, changeArray] = useState([
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0],
-  ]);
+
+function LayoutConfigurationCard({ onCellDataChange, array }) {
+  const [cellState, setCellState] = useState(0);
+  const [cellColumnIndex, setCellColumnIndex] = useState(0);
+  const [cellRowIndex, setCellRowIndex] = useState(0);
 
   function backgroundChooser(value) {
     switch (value) {
@@ -45,14 +38,6 @@ function LayoutConfigurationCard() {
     }
   }
 
-  function changeArrayIndex(value, x, y) {
-    changeArray((prevArray) => {
-      const newArray = [...prevArray]; // Create a copy of the original array
-      newArray[x][y] = value; // Update the specific index
-      return newArray;
-    });
-  }
-
   return (
     <Card className="shadow-sm simulation-card">
       <Card.Body>
@@ -63,18 +48,23 @@ function LayoutConfigurationCard() {
         <Legend />
 
         <Container>
-          {displayArray.map((currentArr, i) => (
+          {array.map((currentArr, i) => (
             <Row>
               {currentArr.map((currentItem, j) => (
                 <Col className="type-picker">
                   <Dropdown drop={"down-centered"}>
-                    <Dropdown.Toggle data-testid={"dd-button" + j + i} variant="secondary" id="dropdown-basic" className={backgroundChooser(currentItem)}>
+                    <Dropdown.Toggle
+                      data-testid={"dd-button" + j + i}
+                      variant="secondary"
+                      id="dropdown-basic"
+                      className={backgroundChooser(currentItem)}
+                    >
                       {" "}
                     </Dropdown.Toggle>
                     <Dropdown.Menu data-testid={"dd-menu" + j + i}>
                       <Dropdown.Item
                         onClick={() => {
-                          changeArrayIndex(0, i, j);
+                          onCellDataChange(0, i, j);
                         }}
                       >
                         <div className="open "></div>
@@ -82,21 +72,21 @@ function LayoutConfigurationCard() {
                       <Dropdown.Item
                         data-testid={"wall"}
                         onClick={() => {
-                          changeArrayIndex(1, i, j);
+                          onCellDataChange(1, i, j);
                         }}
                       >
                         <div className="wall "></div>
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => {
-                          changeArrayIndex(2, i, j);
+                          onCellDataChange(2, i, j);
                         }}
                       >
                         <div className="robot "></div>
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => {
-                          changeArrayIndex(3, i, j);
+                          onCellDataChange(3, i, j);
                         }}
                       >
                         <div className="end "></div>
@@ -113,4 +103,3 @@ function LayoutConfigurationCard() {
   );
 }
 export default LayoutConfigurationCard;
-

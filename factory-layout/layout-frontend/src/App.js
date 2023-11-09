@@ -8,6 +8,7 @@ import LayoutConfigurationCard from "./components/LayoutConfigurationCard.js";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import ParentComponent from "./components/ParentComponent.js";
 
 function App() {
   return (
@@ -50,17 +51,7 @@ function App() {
         </Col>
 
         <Col sm={10}>
-          <Container fluid={true} className="main-container">
-            <Row className="w100p display-flex">
-              <Col sm={8}>
-                <LayoutConfigurationCard />
-              </Col>
-
-              <Col sm={4}>
-                <Settings currentPage="dashboard" />
-              </Col>
-            </Row>
-          </Container>
+          <ParentComponent />
         </Col>
       </Row>
     </Container>
