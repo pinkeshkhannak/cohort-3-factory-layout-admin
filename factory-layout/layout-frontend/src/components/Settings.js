@@ -6,7 +6,7 @@ import "./Settings.css";
 import Stack from "react-bootstrap/Stack";
 import React, { useState } from "react";
 
-function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection, layoutName }) {
+function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection, layoutName, onSave }) {
   return (
     <Card className="settings">
       <div className="card">
@@ -75,7 +75,7 @@ function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection
               <Button href="Dashboard" variant="dark">
                 Cancel
               </Button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" onClick={onSave}>
                 Save
               </button>
             </div>

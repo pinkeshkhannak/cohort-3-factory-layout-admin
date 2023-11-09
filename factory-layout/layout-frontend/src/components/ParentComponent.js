@@ -39,6 +39,36 @@ function ParentComponent() {
     });
   }
 
+const handleSave = () => {
+  const layoutData = {
+    name: layoutName,
+    direction: facingDirection,
+    cells: displayArray.map((row, rowIndex) =>
+      row.map((cellState, columnIndex) => ({
+        column_index: columnIndex,
+        row_index: rowIndex,
+        cell_state: cellState,
+      }))
+    ),
+  };
+
+  fetch("/api/save", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(layoutData),
+  })
+    .then((response) => response.json())
+
+    .then((data) => {
+      console.log("Layout configuration saved:", data);
+    })
+    .catch((error) => {
+      console.error("Error saving layout configuration:", error);
+    });
+};
+
   return (
     <Container fluid={true} className="main-container">
       <Row className="w100p display-flex">
@@ -52,6 +82,7 @@ function ParentComponent() {
             onFacingDirectionChange={handleFacingDirectionChange}
             facingDirection={facingDirection}
             layoutName={layoutName}
+            onSave={handleSave}
           />
         </Col>
       </Row>
