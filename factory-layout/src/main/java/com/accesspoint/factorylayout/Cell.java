@@ -38,8 +38,10 @@ public class Cell {
     //------------------------------------
 
 
-    public Cell( Integer column_index, Integer row_index, CellState cell_state, Layout layout) {
+    public Cell() {
+    }
 
+    public Cell(Integer column_index, Integer row_index, CellState cell_state, Layout layout) {
         this.column_index = column_index;
         this.row_index = row_index;
         this.cell_state = cell_state;
