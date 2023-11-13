@@ -1,10 +1,23 @@
 package com.accesspoint.factorylayout;
 
-import jakarta.persistence.*;
+
+
 
 
 //NonNull is provided by default by package-info
 
+
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.util.List;
 
@@ -39,16 +52,12 @@ public class Layout {
     /*
    Constructor
       */
+
+    public Layout() {}
+
     public Layout(String name, Direction direction) {
         this.name = name;
         this.direction = direction;
-    }
-
-
-    public Layout(String name, Direction direction, List<Cell> cells) {
-        this.name = name;
-        this.direction = direction;
-        this.cells = cells;
     }
 
         /*
