@@ -118,8 +118,13 @@ public class LayoutController{
 //        }
 //    }
 //
-//    @DeleteMapping("/{layoutId}")
-//    public void deleteLayout(@PathVariable Long layoutId) {
-//        layoutRepository.deleteById(layoutId);
-//    }
+    @DeleteMapping("delete/{layoutId}")
+    public ResponseEntity deleteLayout(@PathVariable Long layoutId) {
+        //good input
+        // http://localhost:8081/api/layouts/delete/20
+        // if the layout with id of 20 exists
+
+        layoutRepository.deleteById(layoutId);
+        return ResponseEntity.ok(">:) Deleted");
+    }
 }
