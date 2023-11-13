@@ -46,6 +46,8 @@ const handleSave = () => {
     arrays: displayArray,
       };
 
+      console.log(layoutData);
+
   fetch("/api/layouts/save", {
     method: "POST",
     headers: {
@@ -53,14 +55,7 @@ const handleSave = () => {
     },
     body: JSON.stringify(layoutData),
   })
-    .then((response) => response.json())
-
-    .then((data) => {
-      console.log("Layout configuration saved:", data);
-    })
-    .catch((error) => {
-      console.error("Error saving layout configuration:", error);
-    });
+    .then((response) => console.log(response))
 };
 
   return (
