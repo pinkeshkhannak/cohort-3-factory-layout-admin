@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ColoredLine from "./ColoredLine";
+import ColoredLine from "../ColordLineComponent/ColoredLine";
 
 import { MdSpaceDashboard } from "react-icons/md";
 import { BsFillPieChartFill, BsTools } from "react-icons/bs";

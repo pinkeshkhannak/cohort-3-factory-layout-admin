@@ -6,15 +6,16 @@ import Col from "react-bootstrap/Col";
 import Stack from "react-bootstrap/Stack";
 import React, { useState, useEffect, useRef } from "react";
 import "./LayoutConfigurationCard.css";
-import ColoredLine from "./ColoredLine";
-import Legend from "./Legend";
+import ColoredLine from "../ColordLineComponent/ColoredLine.js";
+import Legend from "../LegendComponent/Legend.js";
 import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
 
-function LayoutConfigurationCard({ onCellDataChange, array }) {
-  const [cellState, setCellState] = useState(0);
-  const [cellColumnIndex, setCellColumnIndex] = useState(0);
-  const [cellRowIndex, setCellRowIndex] = useState(0);
+import { useSelector, useDispatch } from "react-redux";
+import { changeArrayIndex } from "./LayoutConfigurationCardSlice.js";
+
+function LayoutConfigurationCard() {
+  const array = useSelector((state) => state.LayoutConfigurationCard.displayArray);
+  const dispatch = useDispatch();
 
   function backgroundChooser(value) {
     switch (value) {
@@ -64,7 +65,7 @@ function LayoutConfigurationCard({ onCellDataChange, array }) {
                     <Dropdown.Menu data-testid={"dd-menu" + j + i}>
                       <Dropdown.Item
                         onClick={() => {
-                          onCellDataChange(0, i, j);
+                          dispatch(changeArrayIndex({ value: 0, x: i, y: j }));
                         }}
                       >
                         <div className="open "></div>
@@ -72,21 +73,21 @@ function LayoutConfigurationCard({ onCellDataChange, array }) {
                       <Dropdown.Item
                         data-testid={"wall"}
                         onClick={() => {
-                          onCellDataChange(1, i, j);
+                          dispatch(changeArrayIndex({ value: 1, x: i, y: j }));
                         }}
                       >
                         <div className="wall "></div>
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => {
-                          onCellDataChange(2, i, j);
+                          dispatch(changeArrayIndex({ value: 2, x: i, y: j }));
                         }}
                       >
                         <div className="robot "></div>
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => {
-                          onCellDataChange(3, i, j);
+                          dispatch(changeArrayIndex({ value: 3, x: i, y: j }));
                         }}
                       >
                         <div className="end "></div>

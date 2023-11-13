@@ -1,17 +1,28 @@
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
-import ColoredLine from "./ColoredLine";
+import ColoredLine from "../ColordLineComponent/ColoredLine.js";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Settings.css";
 import Stack from "react-bootstrap/Stack";
 import React, { useState } from "react";
 
-function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection, layoutName, onSave }) {
+import { useSelector, useDispatch } from "react-redux";
+import { handleLayoutNameChange, handleFacingDirectionChange } from "./SettingsSlice.js";
 
-function toCapital(word){
-    return word.toLowerCase()[0].toUpperCase() + word.toLowerCase().slice(1)
-}
-return (
+function Settings({ onSave }) {
+  const layoutName = useSelector((state) => state.Settings.layoutName);
+  const facingDirection = useSelector((state) => state.Settings.facingDirection);
+  const dispatch = useDispatch();
+
+  function toCapital(word) {
+    return word.toLowerCase()[0].toUpperCase() + word.toLowerCase().slice(1);
+  }
+
+  function handleChange(e) {
+    dispatch(handleLayoutNameChange({ value: e.target.value }));
+  }
+
+  return (
     <Card className="settings">
       <div className="card">
         <div className="card-body">
@@ -29,7 +40,7 @@ return (
                     aria-describedby="layoutName"
                     placeholder="Layout Name"
                     value={layoutName}
-                    onChange={onLayoutNameChange}
+                    onChange={handleChange}
                   />
                 </div>
 
@@ -41,7 +52,7 @@ return (
                   <Dropdown.Menu>
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("NORTH");
+                        dispatch(handleFacingDirectionChange("NORTH"));
                       }}
                     >
                       North
@@ -49,7 +60,7 @@ return (
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("EAST");
+                        dispatch(handleFacingDirectionChange("EAST"));
                       }}
                     >
                       East
@@ -57,7 +68,7 @@ return (
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("SOUTH");
+                        dispatch(handleFacingDirectionChange("SOUTH"));
                       }}
                     >
                       South
@@ -65,7 +76,7 @@ return (
 
                     <Dropdown.Item
                       onClick={() => {
-                        onFacingDirectionChange("WEST");
+                        dispatch(handleFacingDirectionChange("WEST"));
                       }}
                     >
                       West
