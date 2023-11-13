@@ -5,23 +5,13 @@ import Dropdown from "react-bootstrap/Dropdown";
 import "./Settings.css";
 import Stack from "react-bootstrap/Stack";
 import React, { useState } from "react";
-import LayoutConfigurationCard from "./LayoutConfigurationCard";
 
-function Settings() {
-  const [layoutName, setLayoutName] = useState("");
-  const [facingDirection, setFacingDirection] = useState(null);
+function Settings({ onLayoutNameChange, onFacingDirectionChange, facingDirection, layoutName, onSave }) {
 
-  // Function to handle changes in layout name
-  const handleLayoutNameChange = (e) => {
-    setLayoutName(e.target.value);
-  };
-
-  // Function to handle changes in facing direction
-  const handleFacingDirectionChange = (direction) => {
-    setFacingDirection(direction);
-  };
-
-  return (
+function toCapital(word){
+    return word.toLowerCase()[0].toUpperCase() + word.toLowerCase().slice(1)
+}
+return (
     <Card className="settings">
       <div className="card">
         <div className="card-body">
@@ -39,19 +29,19 @@ function Settings() {
                     aria-describedby="layoutName"
                     placeholder="Layout Name"
                     value={layoutName}
-                    onChange={handleLayoutNameChange}
+                    onChange={onLayoutNameChange}
                   />
                 </div>
 
                 <Dropdown>
                   <Dropdown.Toggle variant="btn btn-secondary" id="dropdown-basic-button">
-                    {facingDirection ? facingDirection : "Initial Facing Direction"}
+                    {facingDirection ? toCapital(facingDirection) : "Initial Facing Direction"}
                   </Dropdown.Toggle>
 
                   <Dropdown.Menu>
                     <Dropdown.Item
                       onClick={() => {
-                        handleFacingDirectionChange("North");
+                        onFacingDirectionChange("NORTH");
                       }}
                     >
                       North
@@ -59,7 +49,7 @@ function Settings() {
 
                     <Dropdown.Item
                       onClick={() => {
-                        handleFacingDirectionChange("East");
+                        onFacingDirectionChange("EAST");
                       }}
                     >
                       East
@@ -67,7 +57,7 @@ function Settings() {
 
                     <Dropdown.Item
                       onClick={() => {
-                        handleFacingDirectionChange("South");
+                        onFacingDirectionChange("SOUTH");
                       }}
                     >
                       South
@@ -75,7 +65,7 @@ function Settings() {
 
                     <Dropdown.Item
                       onClick={() => {
-                        handleFacingDirectionChange("West");
+                        onFacingDirectionChange("WEST");
                       }}
                     >
                       West
@@ -89,19 +79,15 @@ function Settings() {
               <Button href="Dashboard" variant="dark">
                 Cancel
               </Button>
-              <button type="button" className="btn btn-primary">
+              <button type="button" className="btn btn-primary" onClick={onSave}>
                 Save
               </button>
             </div>
           </Stack>
         </div>
       </div>
-
-      <settingsInfo
-        layoutName={layoutName} // Pass layoutName to LayoutConfigurationCard
-        facingDirection={facingDirection} // Pass facingDirection to LayoutConfigurationCard
-      />
     </Card>
   );
 }
+
 export default Settings;

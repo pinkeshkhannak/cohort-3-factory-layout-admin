@@ -9,14 +9,15 @@ CREATE TYPE CellState AS ENUM ('OPEN', 'WALL', 'START', 'END');
 CREATE TABLE layout (
     layout_id BIGSERIAL PRIMARY KEY,
     name TEXT,
-    direction Direction
+    direction varchar(5),
 );
 
 CREATE TABLE cell (
-    layout_id BIGSERIAL,
-    column_index INTEGER,
+    cell_id BIGSERIAL PRIMARY KEY,
     row_index INTEGER,
-    cell_state CellState,
+    column_index INTEGER,
+    cell_state varchar(5),
+    layout_id BIGSERIAL,
     FOREIGN KEY (layout_id) REFERENCES layout(layout_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
