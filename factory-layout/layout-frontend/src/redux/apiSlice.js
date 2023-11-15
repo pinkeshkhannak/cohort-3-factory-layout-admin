@@ -1,31 +1,14 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
-import { SettingsSlice } from "../components/SettingsCard/SettingsSlice.js";
 
-export const apiSlice = createApi(
-  const state = getS
-  {
+export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({ baseUrl: "http://localhost:8081/api/layouts" }),
   endpoints: (build) => ({
     save: build.mutation({
-      query: () => ({
+      query: (action) => ({
         url: "/save",
         method: "POST",
-        body: {
-          name: state.SettingsSlice.layoutName,
-          direction: state.SettingsSlice.facingDirection,
-          arrays: [
-            [1, 0, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0],
-            [0, 1, 0, 0, 0, 0, 0, 0, 0],
-            [0, 2, 0, 1, 0, 0, 0, 0, 0],
-            [0, 0, 0, 0, 1, 0, 0, 0, 0],
-            [0, 0, 0, 0, 0, 1, 0, 0, 0],
-            [0, 0, 0, 0, 0, 0, 1, 0, 0],
-            [0, 0, 0, 0, 3, 0, 0, 1, 0],
-            [0, 0, 0, 0, 0, 0, 0, 0, 0],
-          ],
-        },
+        body: action,
       }),
     }),
   }),

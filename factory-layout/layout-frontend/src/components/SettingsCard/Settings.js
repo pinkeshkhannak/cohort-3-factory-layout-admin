@@ -92,7 +92,7 @@ function Settings({ onSave }) {
               <Button href="Dashboard" variant="dark">
                 Cancel
               </Button>
-              <button type="button" className="btn btn-primary" onClick={() => saveLayout()}>
+              <button type="button" className="btn btn-primary" onClick={() => saveLayout("dd")}>
                 Save
               </button>
             </div>
