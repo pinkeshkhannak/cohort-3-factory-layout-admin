@@ -4,15 +4,17 @@ import ColoredLine from "../ColordLineComponent/ColoredLine.js";
 import Dropdown from "react-bootstrap/Dropdown";
 import "./Settings.css";
 import Stack from "react-bootstrap/Stack";
-import React, { useState } from "react";
+import React from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { handleLayoutNameChange, handleFacingDirectionChange } from "./SettingsSlice.js";
+import { useSaveMutation } from "../../redux/apiSlice.js";
 
 function Settings({ onSave }) {
   const layoutName = useSelector((state) => state.Settings.layoutName);
   const facingDirection = useSelector((state) => state.Settings.facingDirection);
   const dispatch = useDispatch();
+  const [saveLayout] = useSaveMutation();
 
   function toCapital(word) {
     return word.toLowerCase()[0].toUpperCase() + word.toLowerCase().slice(1);
@@ -90,7 +92,7 @@ function Settings({ onSave }) {
               <Button href="Dashboard" variant="dark">
                 Cancel
               </Button>
-              <button type="button" className="btn btn-primary" onClick={onSave}>
+              <button type="button" className="btn btn-primary" onClick={() => saveLayout()}>
                 Save
               </button>
             </div>
