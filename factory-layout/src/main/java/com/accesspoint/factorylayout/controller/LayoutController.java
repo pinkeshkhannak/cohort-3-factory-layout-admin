@@ -9,8 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
-
-
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
@@ -116,12 +114,21 @@ public class LayoutController{
     }
 
 
-//    @GetMapping("/all")
-//    public List<Layout> getAllLayouts() {
-//        return layoutRepository.findAll();
-//    }
+    @GetMapping("/all")
+    public ResponseEntity<String> getAllLayouts() {
+        List<Layout> allLayouts = layoutRepository.findAll();
+        StringBuilder result = new StringBuilder("All Layouts:\n");
+
+        for (Layout layout : allLayouts) {
+            result.append("layout_id=").append(layout.getLayout_id())
+                    .append(", name='").append(layout.getName()).append('\'')
+                    .append(", creation_date=").append(layout.getCreation_date()).append("\n");
+        }
+
+        return ResponseEntity.ok(result.toString());
+    }
 //
-//    @PutMapping("/Edit/{layoutId}")
+//    @PutMapping("/edit/{layoutId}")
 //    public Layout updateLayout(@PathVariable Long layoutId, @RequestBody Layout updatedLayout) {
 //        if (layoutRepository.existsById(layoutId)) {
 //            updatedLayout.setLayout_id(layoutId);
