@@ -1,20 +1,25 @@
 package com.accesspoint.factorylayout.controller;
 
 import com.accesspoint.factorylayout.Cell;
-import com.accesspoint.factorylayout.Direction;
 import com.accesspoint.factorylayout.InputClass;
-import org.springframework.http.HttpStatus;
+import com.fasterxml.jackson.annotation.JsonView;
+import jakarta.servlet.http.HttpServletRequest;
+import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+
+
 import com.accesspoint.factorylayout.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
+import org.springframework.web.servlet.HandlerMapping;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -97,18 +102,26 @@ public class LayoutController{
 
 
 
-//
-//    @GetMapping("/{layoutId}")
-//    public Layout getLayoutById(@PathVariable Long layoutId) {
-//        return layoutRepository.findById(layoutId).orElse(null);
-//    }
-//
+
+    @GetMapping("/{layoutId}")
+    public ResponseEntity<String> one(@PathVariable Long layoutId) {
+        Optional<Layout> returnLayout = layoutRepository.findById(layoutId);
+
+        if (returnLayout.isPresent()) {
+            return ResponseEntity.ok("Layout: " + returnLayout.get());
+            //If I don't add the "Layout: " it yells at me
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+
 //    @GetMapping("/all")
 //    public List<Layout> getAllLayouts() {
 //        return layoutRepository.findAll();
 //    }
 //
-//    @PutMapping("/{layoutId}")
+//    @PutMapping("/Edit/{layoutId}")
 //    public Layout updateLayout(@PathVariable Long layoutId, @RequestBody Layout updatedLayout) {
 //        if (layoutRepository.existsById(layoutId)) {
 //            updatedLayout.setLayout_id(layoutId);

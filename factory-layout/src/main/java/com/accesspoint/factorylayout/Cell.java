@@ -31,7 +31,7 @@ public class Cell {
     private Integer  row_index;
 
     @Enumerated(EnumType.STRING)
-    private CellState cell_state;
+    CellState cell_state;
 
 
 
