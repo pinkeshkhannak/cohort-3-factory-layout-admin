@@ -1,5 +1,5 @@
 import { render, screen } from "@testing-library/react";
-import Sidebar from "./Sidebar";
+import Sidebar from "./SideBar.js";
 
 describe("SideBar testing", () => {
   test("Renders Capstone Project title", () => {
