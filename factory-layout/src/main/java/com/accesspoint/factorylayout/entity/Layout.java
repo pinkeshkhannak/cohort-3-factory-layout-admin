@@ -1,4 +1,4 @@
-package com.accesspoint.factorylayout;
+package com.accesspoint.factorylayout.entity;
 
 
 
@@ -6,13 +6,12 @@ package com.accesspoint.factorylayout;
 
 //NonNull is provided by default by package-info
 
-import jakarta.persistence.*;
+import com.accesspoint.factorylayout.entity.Cell;
+import com.accesspoint.factorylayout.entity.Direction;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
-import org.springframework.data.jpa.repository.Temporal;
 
-import java.sql.Date;
 import java.sql.Timestamp;
 
 import jakarta.persistence.CascadeType;
@@ -28,7 +27,6 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @Entity
 @Table(name = "layout")
@@ -60,6 +58,8 @@ public class Layout {
     @CreationTimestamp
     @Getter @Setter
     private Timestamp creation_date;
+
+
     /*
    Constructor
       */
@@ -134,7 +134,7 @@ public class Layout {
             result.append("[");
             for (int col = 0; col < 9; col++) {
                 Cell cell = grid[col][row];
-                result.append(cell.cell_state.ordinal());
+                result.append(cell.getCell_state().ordinal());
                 if (col < 8) {
                     result.append(", ");
                 }

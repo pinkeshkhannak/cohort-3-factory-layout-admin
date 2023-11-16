@@ -1,10 +1,9 @@
 package com.accesspoint.factorylayout.controller;
 
-import com.accesspoint.factorylayout.Cell;
-import com.accesspoint.factorylayout.InputClass;
-import com.fasterxml.jackson.annotation.JsonView;
-import jakarta.servlet.http.HttpServletRequest;
-import org.springframework.data.rest.webmvc.PersistentEntityResourceAssembler;
+import com.accesspoint.factorylayout.entity.Cell;
+import com.accesspoint.factorylayout.entity.CellState;
+import com.accesspoint.factorylayout.model.LayoutWithCells;
+import com.accesspoint.factorylayout.request.CreateLayoutRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -13,11 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
 
-import com.accesspoint.factorylayout.Layout;
+import com.accesspoint.factorylayout.entity.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
-import org.springframework.web.servlet.HandlerMapping;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -31,7 +30,7 @@ public class LayoutController{
 
     @PostMapping("/save")
 
-    public ResponseEntity  createLayout(@RequestBody InputClass inputClass) {
+    public ResponseEntity  createLayout(@RequestBody CreateLayoutRequest inputClass) {
 //              good input example
 //        {
 //            "name": "Jppohn",
@@ -102,42 +101,45 @@ public class LayoutController{
 
 
     @GetMapping("/{layoutId}")
-    public ResponseEntity<String> one(@PathVariable Long layoutId) {
-        Optional<Layout> returnLayout = layoutRepository.findById(layoutId);
+    public ResponseEntity<LayoutWithCells> one(@PathVariable Long layoutId) {
+        Optional<LayoutWithCells> returnLayout = layoutRepository.findById(layoutId)
+                .map(layout -> {
+                    CellState[][] cells = new CellState[9][9];
 
-        if (returnLayout.isPresent()) {
-            return ResponseEntity.ok("Layout: " + returnLayout.get());
-            //If I don't add the "Layout: " it yells at me
-        } else {
-            return ResponseEntity.notFound().build();
-        }
+                    layout.getCells()
+                            .forEach(cell -> {
+                                cells[cell.getColumn_index()][cell.getRow_index()] = cell.getCell_state();
+                            });
+
+                    return new LayoutWithCells(
+                                    layout.getLayout_id(),
+                                    layout.getName(),
+                                    layout.getCreation_date(),
+                                    cells);
+                });
+
+        return returnLayout.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
 
     @GetMapping("/all")
-    public ResponseEntity<String> getAllLayouts() {
-        List<Layout> allLayouts = layoutRepository.findAll();
-        StringBuilder result = new StringBuilder("All Layouts:\n");
+    public ResponseEntity<List<com.accesspoint.factorylayout.model.Layout>> getAllLayouts() {
+        List<com.accesspoint.factorylayout.model.Layout> layouts = layoutRepository.findAll()
+                .stream()
+                .map(layout -> com.accesspoint.factorylayout.model.Layout.builder()
+                        .id(layout.getLayout_id())
+                        .name(layout.getName())
+                        .creationDate(layout.getCreation_date())
+                        .build()
+                ).collect(Collectors.toList());
 
-        for (Layout layout : allLayouts) {
-            result.append("layout_id=").append(layout.getLayout_id())
-                    .append(", name='").append(layout.getName()).append('\'')
-                    .append(", creation_date=").append(layout.getCreation_date()).append("\n");
-        }
-
-        return ResponseEntity.ok(result.toString());
+        return ResponseEntity.ok(layouts);
     }
+
+//        @PutMapping("/edit/{layoutId}")
 //
-//    @PutMapping("/edit/{layoutId}")
-//    public Layout updateLayout(@PathVariable Long layoutId, @RequestBody Layout updatedLayout) {
-//        if (layoutRepository.existsById(layoutId)) {
-//            updatedLayout.setLayout_id(layoutId);
-//            return layoutRepository.save(updatedLayout);
-//        } else {
-//            return null;
 //        }
-//    }
-//
+
     @DeleteMapping("delete/{layoutId}")
     public ResponseEntity deleteLayout(@PathVariable Long layoutId) {
         //good input

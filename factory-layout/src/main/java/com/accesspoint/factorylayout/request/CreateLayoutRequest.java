@@ -1,14 +1,14 @@
-package com.accesspoint.factorylayout;
+package com.accesspoint.factorylayout.request;
 
+import com.accesspoint.factorylayout.entity.CellState;
+import com.accesspoint.factorylayout.entity.Direction;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 
 
-import jakarta.persistence.*;
-
 import java.util.Arrays;
 
-public class InputClass {
+public class CreateLayoutRequest {
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -16,7 +16,7 @@ public class InputClass {
 
     int[][] arrays;
 
-    public InputClass(String name, Direction direction, int[][] arrays) {
+    public CreateLayoutRequest(String name, Direction direction, int[][] arrays) {
         this.name = name;
         this.direction = direction;
         this.arrays = arrays;
