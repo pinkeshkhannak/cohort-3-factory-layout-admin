@@ -1,20 +1,23 @@
 package com.accesspoint.factorylayout.controller;
 
-import com.accesspoint.factorylayout.Cell;
-import com.accesspoint.factorylayout.Direction;
-import com.accesspoint.factorylayout.InputClass;
-import org.springframework.http.HttpStatus;
+import com.accesspoint.factorylayout.entity.Cell;
+import com.accesspoint.factorylayout.entity.CellState;
+import com.accesspoint.factorylayout.model.LayoutWithCells;
+import com.accesspoint.factorylayout.request.CreateLayoutRequest;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import com.accesspoint.factorylayout.Layout;
+
+import com.accesspoint.factorylayout.entity.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.time.ZoneId;
+import java.util.*;
+import java.util.stream.Collectors;
 
 
 @Controller
@@ -28,7 +31,7 @@ public class LayoutController{
 
     @PostMapping("/save")
 
-    public ResponseEntity  createLayout(@RequestBody InputClass inputClass) {
+    public ResponseEntity  createLayout(@RequestBody CreateLayoutRequest inputClass) {
 //              good input example
 //        {
 //            "name": "Jppohn",
@@ -97,27 +100,54 @@ public class LayoutController{
 
 
 
-//
-//    @GetMapping("/{layoutId}")
-//    public Layout getLayoutById(@PathVariable Long layoutId) {
-//        return layoutRepository.findById(layoutId).orElse(null);
-//    }
-//
-//    @GetMapping("/all")
-//    public List<Layout> getAllLayouts() {
-//        return layoutRepository.findAll();
-//    }
-//
-//    @PutMapping("/{layoutId}")
-//    public Layout updateLayout(@PathVariable Long layoutId, @RequestBody Layout updatedLayout) {
-//        if (layoutRepository.existsById(layoutId)) {
-//            updatedLayout.setLayout_id(layoutId);
-//            return layoutRepository.save(updatedLayout);
-//        } else {
-//            return null;
-//        }
-//    }
-//
+
+    @GetMapping("/{layoutId}")
+    public ResponseEntity<LayoutWithCells> one(@PathVariable Long layoutId) {
+        Optional<LayoutWithCells> returnLayout = layoutRepository.findById(layoutId)
+                .map(layout -> {
+                    int[][] cells = new int[9][9];
+
+                    layout.getCells()
+                            .forEach(cell -> {
+                                cells[cell.getRow_index()][cell.getColumn_index()] = cell.getCell_state().ordinal();
+                            });
+
+                    return new LayoutWithCells(
+                                    layout.getLayout_id(),
+                                    layout.getName(),
+                                    layout.getCreation_date().toInstant().atZone(ZoneId.of("GMT-6")).toLocalDateTime(),
+                                    cells);
+                });
+
+        return returnLayout.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+
+    @GetMapping("/all")
+    public ResponseEntity<List<com.accesspoint.factorylayout.model.Layout>> getAllLayouts() {
+        List<com.accesspoint.factorylayout.model.Layout> layouts = layoutRepository.findAll()
+                .stream()
+                .map(layout -> com.accesspoint.factorylayout.model.Layout.builder()
+                        .id(layout.getLayout_id())
+                        .name(layout.getName())
+                        .creationDate(layout.getCreation_date().toInstant().atZone(ZoneId.of("GMT-6")).toLocalDateTime())
+                        .build()
+                ).collect(Collectors.toList());
+
+        return ResponseEntity.ok(layouts);
+    }
+
+    //@PostMapping("/edit/{layoutId}")
+
+    //TODOS
+
+    //Create similar to create layout but with added id
+
+    //New constructor for layout class that includes id
+
+    //Test if saving a layout with an existing id overwrites it
+
+
     @DeleteMapping("delete/{layoutId}")
     public ResponseEntity deleteLayout(@PathVariable Long layoutId) {
         //good input

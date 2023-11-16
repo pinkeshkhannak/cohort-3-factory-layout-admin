@@ -10,6 +10,7 @@ CREATE TABLE layout (
     layout_id BIGSERIAL PRIMARY KEY,
     name TEXT,
     direction varchar(5),
+    creation_date TIMESTAMP with time zone
 );
 
 CREATE TABLE cell (

@@ -1,6 +1,5 @@
-package com.accesspoint.factorylayout;
+package com.accesspoint.factorylayout.entity;
 
-import jakarta.annotation.Nonnull;
 import jakarta.persistence.*;
 
 //NonNull is provided by default by package-info
@@ -75,6 +74,11 @@ public class Cell {
     public Integer getRow_index() {
         return row_index;
     }
+
+    public CellState getCell_state() {
+        return cell_state;
+    }
+
 
     @Override
     public String toString() {
