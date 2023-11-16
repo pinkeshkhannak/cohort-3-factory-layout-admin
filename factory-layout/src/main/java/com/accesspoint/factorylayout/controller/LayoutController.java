@@ -109,7 +109,7 @@ public class LayoutController{
 
                     layout.getCells()
                             .forEach(cell -> {
-                                cells[cell.getRow_index()][cell.getColumn_index()] = cell.cellStateToInt();
+                                cells[cell.getRow_index()][cell.getColumn_index()] = cell.getCell_state().ordinal();
                             });
 
                     return new LayoutWithCells(
