@@ -115,7 +115,7 @@ public class LayoutController{
                     return new LayoutWithCells(
                                     layout.getLayout_id(),
                                     layout.getName(),
-                                    layout.getCreation_date().toInstant().atZone(ZoneId.of("America/Chicago")).toLocalDateTime(),
+                                    layout.getCreation_date().toInstant().atZone(ZoneId.of("GMT-6")).toLocalDateTime(),
                                     cells);
                 });
 
@@ -130,7 +130,7 @@ public class LayoutController{
                 .map(layout -> com.accesspoint.factorylayout.model.Layout.builder()
                         .id(layout.getLayout_id())
                         .name(layout.getName())
-                        .creationDate(layout.getCreation_date().toInstant().atZone(ZoneId.of("America/Chicago")).toLocalDateTime())
+                        .creationDate(layout.getCreation_date().toInstant().atZone(ZoneId.of("GMT-6")).toLocalDateTime())
                         .build()
                 ).collect(Collectors.toList());
 
