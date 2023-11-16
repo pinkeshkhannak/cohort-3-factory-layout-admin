@@ -79,6 +79,21 @@ public class Cell {
         return cell_state;
     }
 
+    public int cellStateToInt(){
+        switch(cell_state) {
+            case OPEN:
+                return 0;
+            case WALL:
+                return 1;
+            case START:
+                return 2;
+            case END:
+                return 3;
+            default:
+                return 0;
+        }
+    }
+
     @Override
     public String toString() {
         return "Cell{" +
