@@ -104,11 +104,11 @@ public class LayoutController{
     public ResponseEntity<LayoutWithCells> one(@PathVariable Long layoutId) {
         Optional<LayoutWithCells> returnLayout = layoutRepository.findById(layoutId)
                 .map(layout -> {
-                    CellState[][] cells = new CellState[9][9];
+                    int[][] cells = new int[9][9];
 
                     layout.getCells()
                             .forEach(cell -> {
-                                cells[cell.getColumn_index()][cell.getRow_index()] = cell.getCell_state();
+                                cells[cell.getRow_index()][cell.getColumn_index()] = cell.cellStateToInt();
                             });
 
                     return new LayoutWithCells(
