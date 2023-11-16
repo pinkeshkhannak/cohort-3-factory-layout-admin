@@ -23,7 +23,7 @@ describe("LayoutConfigurationCard testing", () => {
     act(() => {
       userEvent.click(screen.getByTestId("dd-button00"));
     });
-    rerender(<LayoutConfigurationCard />);
+    rerender(<LayoutConfigurationCard />); //
 
     expect(screen.getByTestId("dd-menu00")).toBeInTheDocument();
   });
