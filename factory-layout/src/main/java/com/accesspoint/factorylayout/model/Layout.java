@@ -4,7 +4,9 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
+
+
 
 @Builder
 public class Layout {
@@ -14,6 +16,6 @@ public class Layout {
     public String name;
 
     @JsonProperty("creation_date")
-    @JsonFormat(pattern="yyyy-MM-dd HH:mm a z", timezone = "UTC")
-    public Timestamp creationDate;
+    @JsonFormat(pattern = "yyyy-MM-dd hh:mm a")
+    public LocalDateTime creationDate;
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.accesspoint.factorylayout.entity.Layout;
 import com.accesspoint.factorylayout.repository.LayoutRepository;
 
+import java.time.ZoneId;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -114,7 +115,7 @@ public class LayoutController{
                     return new LayoutWithCells(
                                     layout.getLayout_id(),
                                     layout.getName(),
-                                    layout.getCreation_date(),
+                                    layout.getCreation_date().toInstant().atZone(ZoneId.of("America/Chicago")).toLocalDateTime(),
                                     cells);
                 });
 
@@ -129,16 +130,23 @@ public class LayoutController{
                 .map(layout -> com.accesspoint.factorylayout.model.Layout.builder()
                         .id(layout.getLayout_id())
                         .name(layout.getName())
-                        .creationDate(layout.getCreation_date())
+                        .creationDate(layout.getCreation_date().toInstant().atZone(ZoneId.of("America/Chicago")).toLocalDateTime())
                         .build()
                 ).collect(Collectors.toList());
 
         return ResponseEntity.ok(layouts);
     }
 
-//        @PutMapping("/edit/{layoutId}")
-//
-//        }
+    @PostMapping("/edit/{layoutId}")
+
+    //TODOS
+
+    //Create similar to create layout but with added id
+
+    //New constructor for layout class that includes id
+
+    //Test if saving a layout with an existing id overwrites it
+
 
     @DeleteMapping("delete/{layoutId}")
     public ResponseEntity deleteLayout(@PathVariable Long layoutId) {
